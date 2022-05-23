@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./addTask.module.css";
 import {v4 as uuid} from 'uuid'
+import Counter from "../Counter/Counter";
 
 // import data from '../../data/tasks.json'
 const AddTask = (data) => {
@@ -50,9 +51,10 @@ console.log(data)
   {
     todo.filter((e)=>(show?true: !e.status)).map((todo)=>(
       <div style={{display:"flex"}}>
-        <input type="checkbox" onClick={(e)=>toogle(data.data.id)}/>
+        <input type="checkbox"  onClick={(e)=>toogle(data.data.id)}/>
         <div>{todo.value}</div>
-        <button onClick={()=>handeldelete(data.data.id)}>Delete</button>
+        <button className='styles.strike' onClick={()=>handeldelete(data.data.id)}>Delete</button>
+       <Counter></Counter>
       </div>
     ))
   }
